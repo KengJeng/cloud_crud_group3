@@ -118,7 +118,6 @@ class CoffeeSeeder extends Seeder
     }
 }
 
-
 // //list of the menu
 // 1. Iced Americano
 // 2. Caramel Macchiato
