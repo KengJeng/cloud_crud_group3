@@ -188,7 +188,7 @@ class CoffeeSeeder extends Seeder
 // 3. Matcha Latte
 // 4. Iced Peppermint Mocha
 // 5. Cappuccino
-// 6. Strawberry Shortcake Frappuccino®
+// 6. Strawberry Shortcake Frappuccino
 // 7. Iced Pistachio Latte
 // 8. Salted Caramel Latte
 // 9. Flat White
