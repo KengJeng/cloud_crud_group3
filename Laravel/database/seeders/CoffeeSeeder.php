@@ -19,7 +19,7 @@ class CoffeeSeeder extends Seeder
                 'description' => 'Rich espresso shots topped with cold water and ice.',
                 'price' => 3.50,
                 'category' => 'Iced Coffee',
-                'image_path' => 'coffees/americano.jpg',
+                'image_path' => 'storage/coffees/americano.jpg',
                 'is_available' => true,
             ],
             [//2
@@ -27,7 +27,7 @@ class CoffeeSeeder extends Seeder
                 'description' => 'Freshly steamed milk with vanilla-flavored syrup marked with espresso and topped with a caramel drizzle.',
                 'price' => 4.95,
                 'category' => 'Hot Coffee',
-                'image_path' => 'coffees/macchiato.jpg',
+                'image_path' => 'storage/coffees/macchiato.jpg',
                 'is_available' => true,
             ],
             [//3
@@ -35,7 +35,7 @@ class CoffeeSeeder extends Seeder
                 'description' => 'Smooth and creamy matcha sweetened just right and served with steamed milk.',
                 'price' => 5.25,
                 'category' => 'Tea',
-                'image_path' => 'coffees/matcha.jpg',
+                'image_path' => 'storage/coffees/matcha.jpg',
                 'is_available' => true,
             ],
             [//4
@@ -43,7 +43,7 @@ class CoffeeSeeder extends Seeder
             'description' => 'A holiday classic with peppermint-flavored syrup and mocha sauce, topped with whipped cream.',
             'price' => 225.00,
             'category' => 'Iced Coffee',
-            'image_path' => 'coffees/peppermint_mocha.jpg',
+            'image_path' => 'storage/coffees/peppermint_mocha.jpg',
             'is_available' => true,
             ],
             [//5
@@ -51,7 +51,7 @@ class CoffeeSeeder extends Seeder
             'description' => 'Dark, rich espresso lies under a smoothed and stretched layer of thick milk foam.',
             'price' => 165.00,
             'category' => 'Hot Coffee',
-            'image_path' => 'coffees/cappuccino.jpg',
+            'image_path' => 'storage/coffees/cappuccino.jpg',
             'is_available' => true,
             ],
             [//6
@@ -59,7 +59,7 @@ class CoffeeSeeder extends Seeder
             'description' => 'A blend of ice, milk, and strawberry puree layered with splashes of strawberry and whipped cream.',
             'price' => 280.00,
             'category' => 'Frappuccino',
-            'image_path' => 'coffees/strawberry_frap.jpg',
+            'image_path' => 'storage/coffees/strawberry_frap.jpg',
             'is_available' => true,
             ],
             [//7
@@ -67,7 +67,7 @@ class CoffeeSeeder extends Seeder
             'description' => 'Sweet pistachio flavor paired with espresso and milk, served over ice with a salted brown-butter topping.',
             'price' => 225.00,
             'category' => 'Iced Coffee',
-            'image_path' => 'coffees/pistachio_latte.jpg',
+            'image_path' => 'storage/coffees/pistachio_latte.jpg',
             'is_available' => true,
             ],
             [//8
@@ -75,7 +75,7 @@ class CoffeeSeeder extends Seeder
             'description' => 'Espresso and steamed milk blended with salted caramel syrup and topped with a crunch of caramel.',
             'price' => 215.00,
             'category' => 'Hot Coffee',
-            'image_path' => 'coffees/salted_caramel.jpg',
+            'image_path' => 'storage/coffees/salted_caramel.jpg',
             'is_available' => true,
             ],
             [//9
@@ -83,7 +83,7 @@ class CoffeeSeeder extends Seeder
             'description' => 'Smooth ristretto shots of espresso with steamed whole milk for a creamy finish.',
             'price' => 185.00,
             'category' => 'Hot Coffee',
-            'image_path' => 'coffees/flat_white.jpg',
+            'image_path' => 'storage/coffees/flat_white.jpg',
             'is_available' => true,
             ],
             [//10
@@ -91,7 +91,7 @@ class CoffeeSeeder extends Seeder
             'description' => 'Our smooth signature Espresso Roast with caramelly sweetness.',
             'price' => 99.00,
             'category' => 'Hot Coffee',
-            'image_path' => 'coffees/espresso.jpg',
+            'image_path' => 'storage/coffees/espresso.jpg',
             'is_available' => true,
             ],
             [//11
@@ -99,7 +99,7 @@ class CoffeeSeeder extends Seeder
             'description' => 'Sugar cookie-flavored syrup combined with Starbucks® Blonde Espresso and creamy almond milk.',
             'price' => 225.00,
             'category' => 'Seasonal',
-            'image_path' => 'coffees/sugar_cookie.jpg',
+            'image_path' => 'storage/coffees/sugar_cookie.jpg',
             'is_available' => true,
             ],
             [//12
@@ -107,7 +107,7 @@ class CoffeeSeeder extends Seeder
             'description' => 'Espresso, steamed milk and rich Caramel Brulée sauce, topped with whipped cream and even more crunchy bits.',
             'price' => 210.00,
             'category' => 'Seasonal',
-            'image_path' => 'coffees/caramel_brulee.jpg',
+            'image_path' => 'storage/coffees/caramel_brulee.jpg',
             'is_available' => true,
         ],
     ];

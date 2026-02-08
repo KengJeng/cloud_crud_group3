@@ -14,6 +14,7 @@ class CoffeeController extends Controller
     public function index()
     {
         return Coffee::all();
+        return view('coffees.index', compact('coffees'));
     }
 
     /**
