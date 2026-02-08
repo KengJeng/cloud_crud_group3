@@ -110,6 +110,70 @@ class CoffeeSeeder extends Seeder
             'image_path' => 'storage/coffees/caramel_brulee.jpg',
             'is_available' => true,
         ],
+        [//13
+            'name' => 'Chai Tea Cream Frappuccino',
+            'description' => 'A creamy blend of spicy chai, milk, and ice, topped with whipped cream and a dash of cinnamon.',
+            'price' => 205.00,
+            'category' => 'Frappuccino',
+            'image_path' => 'coffees/chai_cream_frap.jpg',
+            'is_available' => true,
+        ],
+        [//14
+            'name' => 'Vanilla Cream Frappuccino',
+            'description' => 'A creamy blend of vanilla bean, milk, and ice, topped with whipped cream for a classic finish.',
+            'price' => 200.00,
+            'category' => 'Frappuccino',
+            'image_path' => 'coffees/vanilla_cream_frap.jpg',
+            'is_available' => true,
+        ],
+        [//15
+            'name' => 'Dark Caramel Coffee Frappuccino',
+            'description' => 'Coffee, milk, and dark caramel sauce blended with ice, topped with whipped cream and caramel drizzle.',
+            'price' => 225.00,
+            'category' => 'Frappuccino',
+            'image_path' => 'coffees/dark_caramel_frap.jpg',
+            'is_available' => true,
+        ],
+        [//16
+            'name' => 'Triple Mocha Frappuccino',
+            'description' => 'Layers of dark mocha sauce, whipped cream, and chocolate coffee blended for the ultimate mocha lover.',
+            'price' => 235.00,
+            'category' => 'Frappuccino',
+            'image_path' => 'coffees/triple_mocha_frap.jpg',
+            'is_available' => true,
+        ],
+        [//17
+            'name' => 'Coffee Jelly Frappuccino',
+            'description' => 'Coffee blended with milk and ice, layered over our signature coffee jelly for a delightful texture.',
+            'price' => 215.00,
+            'category' => 'Frappuccino',
+            'image_path' => 'coffees/coffee_jelly_frap.jpg',
+            'is_available' => true,
+        ],
+        [//18
+            'name' => 'Java Chip Frappuccino',
+            'description' => 'Coffee, milk, and ice blended with chocolate chips and mocha sauce, topped with whipped cream.',
+            'price' => 230.00,
+            'category' => 'Frappuccino',
+            'image_path' => 'coffees/java_chip_frap.jpg',
+            'is_available' => true,
+        ],
+        [//19
+            'name' => 'Mocha Frappuccino',
+            'description' => 'Mocha sauce, coffee, milk, and ice all blended together and finished with whipped cream.',
+            'price' => 210.00,
+            'category' => 'Frappuccino',
+            'image_path' => 'coffees/mocha_frap.jpg',
+            'is_available' => true,
+        ],
+        [//20
+            'name' => 'Pure Matcha Cream Frappuccino',
+            'description' => 'A smooth and creamy blend of premium micro-ground matcha, milk, and ice, topped with whipped cream.',
+            'price' => 215.00,
+            'category' => 'Frappuccino',
+            'image_path' => 'coffees/matcha_cream_frap.jpg',
+            'is_available' => true,
+        ],
     ];
 
         foreach ($coffees as $coffee) {
@@ -131,3 +195,11 @@ class CoffeeSeeder extends Seeder
 // 10. Espresso
 // 11. Sugar Cookie Latte
 // 12. Caramel Brulée Latte
+// 13. Chai Tea Cream Frappuccino
+// 14. Vanilla Cream Frappuccino
+// 15. Dark Caramel Coffee Frappuccino
+// 16. Triple Mocha Frappuccino
+// 17. Coffee Jelly Frappuccino
+// 18. Java Chip Frappuccino
+// 19. Mocha Frappuccino
+// 20. Pure Matcha Cream Frappuccino
