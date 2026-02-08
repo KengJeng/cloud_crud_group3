@@ -17,7 +17,7 @@ class CoffeeSeeder extends Seeder
             [//1
                 'name' => 'Iced Americano',
                 'description' => 'Rich espresso shots topped with cold water and ice.',
-                'price' => 3.50,
+                'price' => 120.00,
                 'category' => 'Iced Coffee',
                 'image_path' => 'storage/coffees/americano.jpg',
                 'is_available' => true,
@@ -25,7 +25,7 @@ class CoffeeSeeder extends Seeder
             [//2
                 'name' => 'Caramel Macchiato',
                 'description' => 'Freshly steamed milk with vanilla-flavored syrup marked with espresso and topped with a caramel drizzle.',
-                'price' => 4.95,
+                'price' => 130.00,
                 'category' => 'Hot Coffee',
                 'image_path' => 'storage/coffees/macchiato.jpg',
                 'is_available' => true,
@@ -33,7 +33,7 @@ class CoffeeSeeder extends Seeder
             [//3
                 'name' => 'Matcha Latte',
                 'description' => 'Smooth and creamy matcha sweetened just right and served with steamed milk.',
-                'price' => 5.25,
+                'price' => 150.00,
                 'category' => 'Tea',
                 'image_path' => 'storage/coffees/matcha.jpg',
                 'is_available' => true,
