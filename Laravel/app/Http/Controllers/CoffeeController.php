@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Coffee;
+use Illuminate\Support\Facades\File;
 
 class CoffeeController extends Controller
 {
@@ -33,9 +34,25 @@ class CoffeeController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'category' => 'nullable|string|max:255',
-            'image_path' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'is_available' => 'boolean',
         ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            
+            // Filename handler
+            $filename = time() . '_' . $file->getClientOriginalName();
+            
+            // Store file in public/storage/coffees
+            $destinationPath = public_path('storage/coffees');
+            $file->move($destinationPath, $filename);
+
+            // Save path to the database array
+            $validatedData['image_path'] = 'storage/coffees/' . $filename;
+        }
+
+        unset($validatedData['image']);
 
         $coffee = Coffee::create($validatedData);
 
@@ -80,9 +97,25 @@ class CoffeeController extends Controller
             'description' => 'nullable|string',
             'price' => 'sometimes|required|numeric|min:0',
             'category' => 'nullable|string|max:255',
-            'image_path' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'is_available' => 'boolean',
         ]);
+
+        if ($request->hasFile('image')) {
+            //Delete the old image if exists
+            if ($coffee->image_path && File::exists(public_path($coffee->image_path))) {
+                File::delete(public_path($coffee->image_path));
+            }
+
+            //Upload new image
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('storage/coffees'), $filename);
+
+            $validatedData['image_path'] = 'storage/coffees/' . $filename;
+        }
+
+        unset($validatedData['image']);
 
         $coffee->update($validatedData);
 
@@ -98,6 +131,11 @@ class CoffeeController extends Controller
 
         if (!$coffee) {
             return response()->json(['message' => 'Coffee not found'], 404);
+        }
+
+        // Delete the image file from public folder
+        if ($coffee->image_path && File::exists(public_path($coffee->image_path))) {
+            File::delete(public_path($coffee->image_path));
         }
 
         $coffee->delete();
