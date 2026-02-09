@@ -26,6 +26,14 @@ Route::post('/coffees', [CoffeeController::class, 'store'])
 Route::get('/coffees/{coffee}', [CoffeeController::class, 'show'])
     ->name('coffees.show');
 
+// Edit coffee form
+Route::get('/coffees/{coffee}/edit', [CoffeeController::class, 'edit'])
+    ->name('coffees.edit');
+
+// Update coffee
+Route::put('/coffees/{coffee}', [CoffeeController::class, 'update'])
+    ->name('coffees.update');
+
 // Delete coffee
 Route::delete('/coffees/{coffee}', [CoffeeController::class, 'destroy'])
     ->name('coffees.destroy');

@@ -81,10 +81,10 @@ class CoffeeController extends Controller
         $coffee = Coffee::find($id);
 
         if (!$coffee) {
-            return response()->json(['message' => 'Coffee not found'], 404);
+            return redirect()->route('coffees.index')->with('error', 'Coffee not found');
         }
 
-        return response()->json($coffee);
+        return view('coffees.show', compact('coffee'));
     }
 
     /**
@@ -92,7 +92,13 @@ class CoffeeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $coffee = Coffee::find($id);
+
+        if (!$coffee) {
+            return redirect()->route('coffees.index')->with('error', 'Coffee not found');
+        }
+
+        return view('coffees.edit', compact('coffee'));
     }
 
     
@@ -101,7 +107,10 @@ class CoffeeController extends Controller
         $coffee = Coffee::find($id);
 
         if (!$coffee) {
-            return response()->json(['message' => 'Coffee not found'], 404);
+            if ($request->wantsJson()) {
+                return response()->json(['message' => 'Coffee not found'], 404);
+            }
+            return redirect()->route('coffees.index')->with('error', 'Coffee not found');
         }
 
         $validatedData = $request->validate([
@@ -138,7 +147,13 @@ class CoffeeController extends Controller
 
         $coffee->update($validatedData);
 
-        return response()->json($coffee);
+        if ($request->wantsJson()) {
+            return response()->json($coffee);
+        }
+
+        return redirect()
+            ->route('coffees.index')
+            ->with('success', 'Coffee updated successfully!');
     }
 
     
