@@ -7,6 +7,13 @@ Route::get('/', function () {
     return view('test');
 });
 
-Route::get('/coffees', [CoffeeController::class, 'index']);
 
-Route::get('/coffees/{coffee}', [CoffeeController::class, 'show']);
+Route::get('/coffees', [CoffeeController::class, 'index'])->name('coffees.index');
+
+Route::get('/coffees/create', [CoffeeController::class, 'create'])->name('coffees.create');
+
+
+Route::post('/coffees', [CoffeeController::class, 'store'])->name('coffees.store');
+
+
+Route::get('/coffees/{coffee}', [CoffeeController::class, 'show'])->name('coffees.show');
