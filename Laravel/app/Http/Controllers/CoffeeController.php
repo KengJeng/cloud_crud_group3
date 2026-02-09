@@ -22,12 +22,11 @@ class CoffeeController extends Controller
      */
     public function create()
     {
-        //
+        // ADDED: show the create form page
+        return view('coffees.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+  
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -39,17 +38,24 @@ class CoffeeController extends Controller
             'is_available' => 'boolean',
         ]);
 
+        $validatedData['is_available'] = $request->has('is_available');
+
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            
-            // Filename handler
+
+     
             $filename = time() . '_' . $file->getClientOriginalName();
-            
-            // Store file in public/storage/coffees
+
+      
             $destinationPath = public_path('storage/coffees');
+            if (!File::exists($destinationPath)) {
+                File::makeDirectory($destinationPath, 0755, true);
+            }
+
+       
             $file->move($destinationPath, $filename);
 
-            // Save path to the database array
+            
             $validatedData['image_path'] = 'storage/coffees/' . $filename;
         }
 
@@ -57,7 +63,14 @@ class CoffeeController extends Controller
 
         $coffee = Coffee::create($validatedData);
 
-        return response()->json($coffee, 201);
+    
+        if ($request->wantsJson()) {
+            return response()->json($coffee, 201);
+        }
+
+        return redirect()
+            ->route('coffees.index')
+            ->with('success', 'Coffee created successfully!');
     }
 
     /**
@@ -82,9 +95,7 @@ class CoffeeController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, string $id)
     {
         $coffee = Coffee::find($id);
@@ -103,15 +114,22 @@ class CoffeeController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            //Delete the old image if exists
+      
             if ($coffee->image_path && File::exists(public_path($coffee->image_path))) {
                 File::delete(public_path($coffee->image_path));
             }
 
-            //Upload new image
+          
             $file = $request->file('image');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('storage/coffees'), $filename);
+
+         
+            $destinationPath = public_path('storage/coffees');
+            if (!File::exists($destinationPath)) {
+                File::makeDirectory($destinationPath, 0755, true);
+            }
+
+            $file->move($destinationPath, $filename);
 
             $validatedData['image_path'] = 'storage/coffees/' . $filename;
         }
@@ -123,9 +141,7 @@ class CoffeeController extends Controller
         return response()->json($coffee);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy(string $id)
     {
         $coffee = Coffee::find($id);
@@ -134,7 +150,7 @@ class CoffeeController extends Controller
             return response()->json(['message' => 'Coffee not found'], 404);
         }
 
-        // Delete the image file from public folder
+ 
         if ($coffee->image_path && File::exists(public_path($coffee->image_path))) {
             File::delete(public_path($coffee->image_path));
         }
