@@ -8,3 +8,5 @@ Route::get('/', function () {
 });
 
 Route::get('/coffees', [CoffeeController::class, 'index']);
+
+Route::get('/coffees/{coffee}', [CoffeeController::class, 'show']);

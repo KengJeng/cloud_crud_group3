@@ -1,44 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Coffee List</title>
+    <title>Coffee Menu</title>
 </head>
 <body>
 
-<h1>Coffee Menu</h1>
+<h1>☕ Coffee Menu</h1>
 
 <table border="1" cellpadding="10">
     <tr>
-        <th>ID</th>
-        <th>Coffee Name</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Category</th>
         <th>Price</th>
     </tr>
 
+    @foreach ($coffees as $coffee)
     <tr>
-        <td>1</td>
-        <td>Americano</td>
-        <td>₱120</td>
+        <td>
+            <img src="{{ asset($coffee->image_path) }}" width="100">
+        </td>
+        <td>
+            <a href="/coffees/{{ $coffee->id }}">
+                {{ $coffee->name }}
+            </a>
+        </td>
+        <td>{{ $coffee->category }}</td>
+        <td>₱{{ number_format($coffee->price, 2) }}</td>
     </tr>
-    <tr>
-        <td>2</td>
-        <td>Latte</td>
-        <td>₱150</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>Cappuccino</td>
-        <td>₱140</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>Espresso</td>
-        <td>₱100</td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>Mocha</td>
-        <td>₱160</td>
-    </tr>
+    @endforeach
 
 </table>
 
